@@ -1,39 +1,58 @@
-# TicketFlow - Vue.js Version
+# TicketFlow – Vue.js Version
 
-## Frameworks & Libraries
-- **Vue 3** + Vite
-- **Pinia** (state management)
-- **Vue Router** (navigation + protected routes)
-- **Tailwind CSS v3** (styling)
-- **vue-toast-notification** (feedback)
+**Live URL**: https://vue-ticketflow.vercel.app  
+**Repository**: https://github.com/Joshdigitalconcept/vue-ticketflow  
 
-## Features
-- Landing page with **wavy SVG**, **3 decorative circles**, **1440px max-width**
-- **Login / Signup** with validation + `ticketapp_session` in `localStorage`
-- **Dashboard** with ticket stats (Total, Open, In Progress, Closed)
-- **Full CRUD** (Create, Read, Edit, Delete) with real-time validation
-- **Status colors**: `open` (green), `in_progress` (amber), `closed` (gray)
-- **Toast notifications** for all actions
-- **Route protection** — unauthorized → `/auth/login`
-- **Session expires** after 1 hour
+---
 
-## Setup
+## Tech Stack
+- **Vue 3** + **Vite** (Composition API + `<script setup>`)  
+- **Pinia** (state management – auth store)  
+- **Vue Router v4** (navigation + route guards)  
+- **Tailwind CSS** (utility-first styling)  
+- **vue-toast-notification** (toast feedback)  
+
+---
+
+## Features (identical across React / Vue / Twig)
+
+| Feature | Implementation |
+|---------|----------------|
+| **Landing page** | Hero with wavy SVG, 3 decorative circles, CTA buttons, max-width 1440px |
+| **Auth** | Login / Signup with validation, `ticketapp_session` in `localStorage`, 1-hour expiry |
+| **Dashboard** | Stats cards (Total, Open, In-Progress, Closed) |
+| **Ticket CRUD** | List, Create, Edit, Delete with real-time validation & toast feedback |
+| **Status colors** | `open` → green, `in_progress` → amber, `closed` → gray |
+| **Protected routes** | Unauthorized → redirect to `/auth/login` |
+| **Responsive** | Mobile-first, tablet & desktop grids |
+| **Accessibility** | Semantic HTML, focus rings, sufficient contrast |
+
+---
+
+## Test Account
+
+Email:    test@example.com
+Password: password123
+
+---
+
+## Local Development
 ```bash
 npm install
 npm run dev
 
-Test Account
+Build & Deploy (Vercel)bash
 
-Email: test@example.com
-Password: password123
+npm run build   # creates ./dist
+vercel          # or import repo on vercel.com
 
-Build & Deploybash
+Vercel auto-detects Vite → runs npm run build and serves dist.Project Structure
 
-npm run build
-vercel
-
-NotesAll data stored in localStorage
-Fully responsive (mobile, tablet, desktop)
-Identical layout to React & Twig versions
-Accessibility: semantic HTML, focus states, contrast
+src/
+ ├─ stores/         # Pinia auth store
+ ├─ views/          # Landing, Login, Signup, Dashboard, Tickets, CreateTicket, EditTicket
+ ├─ router/         # Vue Router + route guard
+ ├─ components/     # (optional reusable UI)
+ ├─ App.vue         # Root layout
+ └─ main.js         # Vue app + global toast
 
